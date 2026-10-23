@@ -30,10 +30,10 @@ flowchart LR
 
 The pipeline runs locally in four steps:
 
-1. `get_codes_from_pdf_Ariadna.py` extracts 4-digit codes (optionally with a trailing letter) from the Ariadna PDF leaflet with a regular expression.
-2. `get_codres_from_web_Anchor.py` scrapes colour codes and names from the Anchor product page.
-3. `get_codes_from_excel_DMC.py` reads the DMC colour chart from Excel, skips header and note rows, and removes `*` and `^` markers from codes.
-4. `upload_data_into_snowflake.py` exports the table to Parquet, uploads it to a Snowflake stage and loads it with `COPY INTO`.
+1. [`get_codes_from_pdf_Ariadna.py`] extracts 4-digit codes (optionally with a trailing letter) from the Ariadna PDF leaflet with a regular expression.
+2. [`get_codres_from_web_Anchor.py`] scrapes colour codes and names from the Anchor product page.
+3. [`get_codes_from_excel_DMC.py`] reads the DMC colour chart from Excel, skips header and note rows, and removes `*` and `^` markers from codes.
+4. [`upload_data_into_snowflake.py`] exports the table to Parquet, uploads it to a Snowflake stage and loads it with `COPY INTO`.
 
 Every script cleans the data (trimmed, uppercase codes, no trailing markers) and writes with an upsert, so re-running it does not create duplicates.
 
@@ -95,11 +95,11 @@ Checked in Snowflake:
 - no duplicates
 - no empty codes, all codes uppercase, no trailing `*` or `^`
 
-![pytest result](docs/pytest_result.png)
+![pytest result](docs/pytest_results.png)
 
 ## Example results
 
-Queries are in [`sql/analysis.sql`](sql/analysis.sql).
+Queries are in [`sql/analysis.py`](sql/analysis.sql).
 
 **Colours per producer**
 
