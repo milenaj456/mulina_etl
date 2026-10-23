@@ -9,7 +9,7 @@ conn = sql.connect('mulina.db')
 c = conn.cursor()
 
 #EXTRACT data from the website and parse
-url = 'https://anchorcrafts.com/products/anchor-stranded-cotton-mouline'
+url = 'https://anchorsite.com/example'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
