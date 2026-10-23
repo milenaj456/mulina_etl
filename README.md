@@ -30,10 +30,10 @@ flowchart LR
 
 The pipeline runs locally in four steps:
 
-1. ['get_codes_from_pdf_Ariadna.py'](src/get_codes_from_pdf_Ariadna.py) extracts 4-digit codes (optionally with a trailing letter) from the Ariadna PDF leaflet with a regular expression.
-2. ['get_codres_from_web_Anchor.py'](src/get_codres_from_web_Anchor.py) scrapes colour codes and names from the Anchor product page.
-3. ['get_codes_from_excel_DMC.py'](src/get_codes_from_excel_DMC.py) reads the DMC colour chart from Excel, skips header and note rows, and removes `*` and `^` markers from codes.
-4. ['upload_data_into_snowflake.py'](src/upload_data_into_snowflake.py) exports the table to Parquet, uploads it to a Snowflake stage and loads it with `COPY INTO`.
+1. [`get_codes_from_pdf_Ariadna.py`](src/get_codes_from_pdf_Ariadna.py) extracts 4-digit codes (optionally with a trailing letter) from the Ariadna PDF leaflet with a regular expression.
+2. [`get_codres_from_web_Anchor.py`](src/get_codres_from_web_Anchor.py) scrapes colour codes and names from the Anchor product page.
+3. [`get_codes_from_excel_DMC.py`](src/get_codes_from_excel_DMC.py) reads the DMC colour chart from Excel, skips header and note rows, and removes `*` and `^` markers from codes.
+4. [`upload_data_into_snowflake.py`](src/upload_data_into_snowflake.py) exports the table to Parquet, uploads it to a Snowflake stage and loads it with `COPY INTO`.
 
 Every script cleans the data (trimmed, uppercase codes, no trailing markers) and writes with an upsert, so re-running it does not create duplicates.
 
@@ -74,7 +74,7 @@ mulina_projekt/
 | CODE     | Colour code, uppercase text (e.g. `310`, `B5200`) |
 | COLOUR   | Colour name (not available for Ariadna)           |
 
-`(PRODUCER, CODE)` is unique in SQLite. Snowflake does not enforce unique constraints, so duplicates there are prevented in the load step and verified by tests. Table definitions are in ['create_table_mulina.py'](sql/create_table_mulina.py).
+`(PRODUCER, CODE)` is unique in SQLite. Snowflake does not enforce unique constraints, so duplicates there are prevented in the load step and verified by tests. Table definitions are in [`create_table_mulina.py`](sql/create_table_mulina.py).
 
 ## Data quality checks
 
