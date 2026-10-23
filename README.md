@@ -119,7 +119,7 @@ The result shows number of colour codes per producer
 
 ## Data sources and disclaimer
 
-The repository contains no source data. Codes come from publicly available materials: the Ariadna leaflet, the Anchor product page and the DMC colour chart. The Anchor scraper is for educational purposes only. This project is not affiliated with DMC, Anchor or Ariadna.
+The repository contains no source data. Codes come from publicly available materials: the Ariadna leaflet, the Anchor product page and the DMC colour chart. The Anchor scraper is for educational purposes only. Anchor's website's terms of use do not explicitly address automated access. This project is not affiliated with DMC, Anchor or Ariadna.
 
 ## Possible next steps
 
