@@ -1,0 +1,9 @@
+pdfplumber
+beautifulsoup4
+requests
+openpyxl
+pandas
+pyarrow
+snowflake-connector-python
+python-dotenv
+pytest
